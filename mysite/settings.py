@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-txv93gg%!)lmnkb4#84%##jnvf4fzys74#dlp4(2h(24u$g!rs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["p8nutella8.herokuapp.com"]
+ALLOWED_HOSTS = ["p8nutella8.herokuapp.com", "localhost"]
 
 
 # Application definition
