@@ -6,8 +6,8 @@ from django.contrib import messages
 def user_login(request):
     """Authenticate a user."""
     # Etape 1 :
-    email = username = request.POST["email-or-username"]
-    password = request.POST["password"]
+    email = username = request.POST.get("email-or-username")
+    password = request.POST.get("password")
 
     # Etape 2 :
     user = authenticate(request, email=email, username=username, password=password)
@@ -21,10 +21,10 @@ def user_login(request):
             request, messages.ERROR, "Les champs renseignés sont invalides."
         )
 
-    return redirect("homepage")
+    return redirect("")
 
 
 def user_logout(request):
     logout(request)
     messages.add_message(request, messages.SUCCESS, "Vous êtes déconnecté !")
-    return redirect("homepage")
+    return redirect("")
