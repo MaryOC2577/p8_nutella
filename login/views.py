@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+from mysite import views
 
 
 def user_login(request):
@@ -21,10 +22,10 @@ def user_login(request):
             request, messages.ERROR, "Les champs renseignés sont invalides."
         )
 
-    return redirect("")
+    return redirect("home")
 
 
 def user_logout(request):
     logout(request)
     messages.add_message(request, messages.SUCCESS, "Vous êtes déconnecté !")
-    return redirect("")
+    return redirect("home")

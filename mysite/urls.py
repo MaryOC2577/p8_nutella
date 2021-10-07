@@ -25,7 +25,7 @@ class Home(TemplateView):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", Home.as_view()),
+    path("", Home.as_view(), name="home"),
     path("accounts/", include("django.contrib.auth.urls")),
     path("login/", include("login.urls")),
 ]
