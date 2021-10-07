@@ -130,13 +130,3 @@ STATICFILES_DIRS = [BASE_DIR / "mysite" / "static"]
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Authentication
-# https://docs.djangoproject.com/fr/2.2/ref/settings/#authentication-backends
-
-AUTHENTICATION_BACKENDS = [
-    "django.contrib.auth.backends.ModelBackend",
-    "login.authenticate.EmailAuth",
-]
-
-AUTH_USER_MODEL = "login.User"  # cette variable pointe sur le modèle User à utiliser
