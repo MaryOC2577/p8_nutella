@@ -1,7 +1,9 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.views.generic import View
+from login.models import User
 
 
 class LoginView(View):
@@ -38,4 +40,19 @@ def user_logout(request):
 
 
 def registration(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password1 = request.POST.get("password1")
+        password2 = request.POST.get("password2")
+        if password1 != password2:
+            return render(
+                request,
+                "registration.html",
+                {"error": "Les mots de passe de correspondent pas."},
+            )
+
+        User.objects.create_user(username=username, email=email, password=password1)
+        return HttpResponse(f"Bienvenue {username} !")
+
     return render(request, "registration.html")
