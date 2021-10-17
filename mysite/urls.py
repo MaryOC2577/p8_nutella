@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic.base import TemplateView
 from django.urls import include
+from login.views import registration
 
 
 class Home(TemplateView):
@@ -28,4 +29,5 @@ urlpatterns = [
     path("", Home.as_view(), name="home"),
     path("accounts/", include("django.contrib.auth.urls")),
     path("login/", include("login.urls")),
+    path("registration/", registration, name="registration"),
 ]

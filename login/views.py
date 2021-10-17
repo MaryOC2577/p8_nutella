@@ -35,3 +35,7 @@ def user_logout(request):
     logout(request)
     messages.add_message(request, messages.SUCCESS, "Vous êtes déconnecté !")
     return redirect("home")
+
+
+def registration(request):
+    return render(request, "registration.html")
